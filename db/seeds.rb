@@ -24,3 +24,10 @@ end
   the_dog = Dog.find(Dog.pluck(:id).shuffle.first)
   the_stroll = Stroll.create!(dogsitter: the_dogsitter, dog: the_dog)
 end
+
+# Seed for CityDogsitter
+10.times do
+  the_dogsitter = Dogsitter.find(Dogsitter.pluck(:id).shuffle.first)
+  the_city = City.find(City.pluck(:id).shuffle.first)
+  citydog_sitter = CityDogsitter.create!(dogsitter: the_dogsitter, city: the_city)
+end
