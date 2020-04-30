@@ -17,3 +17,10 @@ City.destroy_all
   dog = Dog.create!(name: Faker::GreekPhilosophers.name)
   city = City.create!(city_name: Faker::Address.city)
 end
+
+# Seed for Stroll
+10.times do
+  the_dogsitter = Dogsitter.find(Dogsitter.pluck(:id).shuffle.first)
+  the_dog = Dog.find(Dog.pluck(:id).shuffle.first)
+  the_stroll = Stroll.create!(dogsitter: the_dogsitter, dog: the_dog)
+end
